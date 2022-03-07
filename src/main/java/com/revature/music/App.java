@@ -23,24 +23,31 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 class Artist {
     private int artistId;
     private String name;
+
     public Artist(int artistId, String name) {
         this.artistId = artistId;
         this.name = name;
     }
+
     public Artist() {
     }
+
     public int getArtistId() {
         return artistId;
     }
+
     public void setArtistId(int artistId) {
         this.artistId = artistId;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     @Override
     public String toString() {
         return "Artist [artistId=" + artistId + ", name=" + name + "]";
@@ -50,8 +57,9 @@ class Artist {
 public class App {
     public static void main(String[] args) throws SQLException {
         // Connect to DB
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;INIT=runscript from 'classpath:schema.sql'", "sa", "");
-        
+        Connection connection = DriverManager.getConnection(
+                "jdbc:h2:mem:test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;INIT=runscript from 'classpath:schema.sql'",
+                "sa", "");
 
         HttpServlet artistServlet = new HttpServlet() {
             @Override
@@ -60,7 +68,7 @@ public class App {
                 List<Artist> artists = new ArrayList<>();
                 try {
                     ResultSet rs = connection.prepareStatement("select * from Artist").executeQuery();
-                    while(rs.next()) {
+                    while (rs.next()) {
                         artists.add(new Artist(rs.getInt("ArtistId"), rs.getString("Name")));
                     }
                 } catch (SQLException e) {
@@ -79,14 +87,13 @@ public class App {
                     throws ServletException, IOException {
                 ObjectMapper mapper = new ObjectMapper();
                 Artist newArtist = mapper.readValue(req.getInputStream(), Artist.class);
-                System.out.println(newArtist);
                 try {
-                    PreparedStatement stmt = connection.prepareStatement("insert into 'artist' values (?, ?)");
+                    PreparedStatement stmt = connection.prepareStatement("insert into Artist values (?,?)");
                     stmt.setInt(1, newArtist.getArtistId());
                     stmt.setString(2, newArtist.getName());
                     stmt.executeUpdate();
                 } catch (SQLException e) {
-                   System.err.println("Failed to insert: " + e.getMessage());
+                    System.err.println("Failed to insert: " + e.getMessage());
                 }
             }
         };
@@ -97,7 +104,8 @@ public class App {
         server.addContext("", null);
         server.addServlet("", "defaultServlet", new HttpServlet() {
             @Override
-            protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+            protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+                    throws ServletException, IOException {
                 String filename = req.getPathInfo();
                 String resourceDir = "static";
                 InputStream file = getClass().getClassLoader().getResourceAsStream(resourceDir + filename);
