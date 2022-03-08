@@ -57,9 +57,12 @@ class Artist {
 public class App {
     public static void main(String[] args) throws SQLException {
         // Connect to DB
+        //String url = "jdbc:h2:mem:test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;INIT=runscript from 'classpath:schema.sql'";
+        String url = "jdbc:postgresql://p1-db:5432/postgres";
+        String username = "postgres";
+        String password = "postgres";
         Connection connection = DriverManager.getConnection(
-                "jdbc:h2:mem:test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;INIT=runscript from 'classpath:schema.sql'",
-                "sa", "");
+                url, username, password);
 
         HttpServlet artistServlet = new HttpServlet() {
             @Override
