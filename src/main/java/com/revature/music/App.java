@@ -68,7 +68,7 @@ public class App {
             @Override
             protected void doGet(HttpServletRequest req, HttpServletResponse resp)
                     throws ServletException, IOException {
-                List<Artist> artists = new ArrayList<>();
+                List<Artist> artists = new ArrayList<>()
                 try {
                     ResultSet rs = connection.prepareStatement("select * from Artist").executeQuery();
                     while (rs.next()) {
