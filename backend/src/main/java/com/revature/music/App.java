@@ -1,13 +1,5 @@
 package com.revature.music;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.apache.catalina.LifecycleException;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -19,6 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.catalina.LifecycleException;
+import org.apache.catalina.startup.Tomcat;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 class Artist {
     private int artistId;
@@ -58,7 +59,7 @@ public class App {
     public static void main(String[] args) throws SQLException {
         // Connect to DB
         //String url = "jdbc:h2:mem:test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;INIT=runscript from 'classpath:schema.sql'";
-        String url = "jdbc:postgresql://p1-db:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5432/postgres";
         String username = "postgres";
         String password = "postgres";
         Connection connection = DriverManager.getConnection(
@@ -70,9 +71,9 @@ public class App {
                     throws ServletException, IOException {
                 List<Artist> artists = new ArrayList<>();
                 try {
-                    ResultSet rs = connection.prepareStatement("select * from Artist").executeQuery();
+                    ResultSet rs = connection.prepareStatement("select * from artist").executeQuery();
                     while (rs.next()) {
-                        artists.add(new Artist(rs.getInt("ArtistId"), rs.getString("Name")));
+                        artists.add(new Artist(rs.getInt("artist_id"), rs.getString("name")));
                     }
                 } catch (SQLException e) {
                     System.err.println("Failed to retrieve from db: " + e.getSQLState());
