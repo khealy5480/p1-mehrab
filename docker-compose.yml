@@ -4,7 +4,7 @@ services:
     environment:
       POSTGRES_PASSWORD: "postgres"
     volumes:
-      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./db/Chinook_PostgreSql.sql:/docker-entrypoint-initdb.d/schema.sql
     ports:
       - 5432:5432
   app:
@@ -12,7 +12,7 @@ services:
       - p1-db
     restart: on-failure
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     ports:
       - 8081:8080
