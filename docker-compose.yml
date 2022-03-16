@@ -7,6 +7,7 @@ services:
       POSTGRES_PASSWORD: "postgres"
     volumes:
       - ./db/Chinook_PostgreSql.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./db/data:/var/lib/postgresql/data
     ports:
       - 5432:5432
   app:
@@ -24,6 +25,6 @@ services:
     image: nginx
     restart: always
     volumes:
-      - ./frontend/:/usr/share/nginx/html:ro
+      - ./frontend/dist:/usr/share/nginx/html:ro
     ports:
       - 80:80

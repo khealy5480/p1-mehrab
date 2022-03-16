@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +18,17 @@ public class ArtistController {
     }
 
     @GetMapping("/artists")
-    public List<Artist> getAll() {
-        return artistService.getAllArtists();
+    public List<Artist> getArtists() {
+        return artistService.retrieveAllArtists();
+    }
+
+    @GetMapping("/artists/{id}")
+    public Artist getArtist(@PathVariable("id") int id) {
+        return artistService.retrieveArtist(id);
+    }
+
+    @PostMapping("/artists")
+    public void postArtist(Artist artist) {
+        
     }
 }

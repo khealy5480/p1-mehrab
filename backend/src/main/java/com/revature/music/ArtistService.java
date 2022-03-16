@@ -12,7 +12,11 @@ public class ArtistService {
         this.artistRepository = artistRepository;
     }
 
-    public List<Artist> getAllArtists() {
+    public List<Artist> retrieveAllArtists() {
         return artistRepository.getAll();
+    }
+
+    public Artist retrieveArtist(int id) {
+        return artistRepository.getArtist(id);
     }
 }

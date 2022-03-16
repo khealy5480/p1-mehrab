@@ -9,13 +9,13 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 public class App {
     public static void main(String[] args) {
-        ApplicationContext spring = new AnnotationConfigApplicationContext(SpringBeanConfig.class);
-        AnnotationConfigWebApplicationContext mvc = new AnnotationConfigWebApplicationContext();
-        mvc.setParent(spring);
-        mvc.scan("com.revature.music");
+        ApplicationContext springIoC = new AnnotationConfigApplicationContext(SpringBeanConfig.class);
+        AnnotationConfigWebApplicationContext webmvc = new AnnotationConfigWebApplicationContext();
+        webmvc.setParent(springIoC);
+        webmvc.scan("com.revature.music");
 
-        Tomcat server = spring.getBean(Tomcat.class);
-        server.addServlet("", "dispatcher", new DispatcherServlet(mvc)).addMapping("/*");
+        Tomcat server = springIoC.getBean(Tomcat.class);
+        server.addServlet("", "dispatcher", new DispatcherServlet(webmvc)).addMapping("/*");
         try {
             server.start();
         } catch (LifecycleException e) {

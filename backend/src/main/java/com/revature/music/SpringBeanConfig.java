@@ -10,12 +10,11 @@ import org.springframework.context.annotation.Configuration;
 public class SpringBeanConfig {
     @Bean
     public Tomcat tomcat() {
-        final String contextPath = "";
-        final String docBase = new File(System.getProperty("java.io.tmpdir")).getAbsolutePath();
         Tomcat server = new Tomcat();
-        server.setBaseDir(docBase);
+        server.setBaseDir(new File(System.getProperty("java.io.tmpdir")).getAbsolutePath());
+        server.setPort(8080);
         server.getConnector();
-        server.addContext(contextPath, docBase);
+        server.addContext("", null);
         return server;
     }
 }

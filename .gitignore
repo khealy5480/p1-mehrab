@@ -1,7 +1,9 @@
 tomcat*/
 desktop.ini
-.idea/
-bin/
+backend/.idea/
+backend/bin/
+db/data/
+frontend/node_modules/
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,gradle,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,gradle,intellij
