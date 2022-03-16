@@ -1,5 +1,6 @@
 services:
   db:
+    container_name: db
     image: postgres
     restart: always
     environment:
@@ -9,19 +10,20 @@ services:
     ports:
       - 5432:5432
   app:
+    container_name: app
     depends_on:
       - db
-    restart: on-failure
+    restart: always
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
       - 8081:8080
   ui:
+    container_name: ui
     image: nginx
-    restart: on-failure
+    restart: always
     volumes:
       - ./frontend/:/usr/share/nginx/html:ro
     ports:
       - 80:80
-
