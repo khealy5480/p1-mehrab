@@ -1,0 +1,79 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\kevin> cd .\PRPT\p1-mehrab\
+PS C:\Users\kevin\PRPT\p1-mehrab> docker build
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+PS C:\Users\kevin\PRPT\p1-mehrab> docker-compose build
+[+] Building 67.6s (16/17)
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 429B                                                                               0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 374B                                                                                  0.0s
+ => [internal] load metadata for docker.io/library/openjdk:latest                                                  1.7s
+ => [internal] load metadata for docker.io/library/gradle:latest                                                  67.5s
+ => [auth] library/gradle:pull token for registry-1.docker.io                                                      0.0s
+ => [auth] library/openjdk:pull token for registry-1.docker.io                                                     0.0s
+ => [cache 1/4] FROM docker.io/library/gradle@sha256:ce56c8bbe223806848aee26c58d05d3d797049a67b22d8a80fbb5af93e9  40.5s
+ => => resolve docker.io/library/gradle@sha256:ce56c8bbe223806848aee26c58d05d3d797049a67b22d8a80fbb5af93e958e18    0.0s
+ => => sha256:ce56c8bbe223806848aee26c58d05d3d797049a67b22d8a80fbb5af93e958e18 1.21kB / 1.21kB                     0.0s
+ => => sha256:58f56046624ac0b6173c2ccd954f18ca4a3aab6033efd606abef10e1f5b98ac2 1.79kB / 1.79kB                     0.0s
+ => => sha256:8f353b28631ebda262f46c6af6f33f2a22620c5ed1a2dfdd98df9b01cd350cd5 9.04kB / 9.04kB                     0.0s
+ => => sha256:405f018f9d1d0f351c196b841a7c7f226fb8ea448acd6339a9ed8741600275a2 30.42MB / 30.42MB                   9.4s
+ => => sha256:160c99d3182b28de91f5c2c165e40fe309db075058fa23129c7dc2b4e2852b0e 16.66MB / 16.66MB                   8.5s
+ => => sha256:e07a736be37f1d15b9e60b62cb6080265876f34f4e59124da4ce8fc14c478517 192.47MB / 192.47MB                32.3s
+ => => sha256:eb991d49ce62266dbe97f5cacb927c3bf16683663f867c4067dbf4ed2865adf3 160B / 160B                         9.5s
+ => => extracting sha256:405f018f9d1d0f351c196b841a7c7f226fb8ea448acd6339a9ed8741600275a2                          1.2s
+ => => sha256:5c51e5ac488864342dbd6c7a8f31935070965078d4359baf4421bebb9f141af8 4.37kB / 4.37kB                     9.8s
+ => => sha256:9eaadd5423c3651ac85d8bfb8e1c8de88ca1956ef12087f062395dacfc37b303 51.59MB / 51.59MB                  22.9s
+ => => extracting sha256:160c99d3182b28de91f5c2c165e40fe309db075058fa23129c7dc2b4e2852b0e                          0.7s
+ => => sha256:358733492b020750d0a22a2b8a8a3ed0b0dfad1655488313129477a5c05dfd33 115.87MB / 115.87MB                35.7s
+ => => extracting sha256:e07a736be37f1d15b9e60b62cb6080265876f34f4e59124da4ce8fc14c478517                          3.9s
+ => => extracting sha256:eb991d49ce62266dbe97f5cacb927c3bf16683663f867c4067dbf4ed2865adf3                          0.0s
+ => => extracting sha256:5c51e5ac488864342dbd6c7a8f31935070965078d4359baf4421bebb9f141af8                          0.0s
+ => => extracting sha256:9eaadd5423c3651ac85d8bfb8e1c8de88ca1956ef12087f062395dacfc37b303                          2.2s
+ => => extracting sha256:358733492b020750d0a22a2b8a8a3ed0b0dfad1655488313129477a5c05dfd33                          1.6s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 132.69kB                                                                              0.0s
+ => [stage-2 1/2] FROM docker.io/library/openjdk@sha256:6c00de1cadbe85c54e949aac716ac7b32874eaa2ad13c06d33c7acf2  31.2s
+ => => resolve docker.io/library/openjdk@sha256:6c00de1cadbe85c54e949aac716ac7b32874eaa2ad13c06d33c7acf2efe8e959   0.0s
+ => => sha256:38c164acc56b8fbd812e2e9719b215580d9eb6d82677cff65a91a00ef75da0ff 4.46kB / 4.46kB                     0.0s
+ => => sha256:e54b73e95ef388354463a761e4e93ce3dac29cb244b2dc0424f2f4afc6ddf5cd 39.22MB / 39.22MB                   4.1s
+ => => sha256:e6e62647f09f0ab1a3ac2d84823777bead33aa8e201c13b86c063296e8268023 13.51MB / 13.51MB                   5.1s
+ => => sha256:da8e06a8884e166c2e6a94a6f4ada965ee29bfd0b3b68d5ff0a3512751443f5a 188.72MB / 188.72MB                27.1s
+ => => sha256:6c00de1cadbe85c54e949aac716ac7b32874eaa2ad13c06d33c7acf2efe8e959 1.04kB / 1.04kB                     0.0s
+ => => sha256:c3f692d7245baad99d96b213e6c5f24529d16132ba74fa19d62db2aaf9f85586 954B / 954B                         0.0s
+ => => extracting sha256:e54b73e95ef388354463a761e4e93ce3dac29cb244b2dc0424f2f4afc6ddf5cd                          1.5s
+ => => extracting sha256:e6e62647f09f0ab1a3ac2d84823777bead33aa8e201c13b86c063296e8268023                          0.5s
+ => => extracting sha256:da8e06a8884e166c2e6a94a6f4ada965ee29bfd0b3b68d5ff0a3512751443f5a                          4.0s
+ => [cache 2/4] WORKDIR /app                                                                                       0.2s
+ => [cache 3/4] COPY build.gradle ./                                                                               0.0s
+ => [cache 4/4] RUN gradle --no-daemon build --stacktrace                                                         15.2s
+ => [build 3/5] COPY --from=cache /cache /home/gradle/.gradle                                                      0.1s
+ => [build 4/5] COPY . .                                                                                           0.0s
+ => [build 5/5] RUN gradle --no-daemon shadowJar --stacktrace                                                      9.0s
+ => [stage-2 2/2] COPY --from=build /app/build/libs/*-all.jar /app.jar                                             0.0s
+ => exporting to image                                                                                             0.1s
+ => => exporting layers                                                                                            0.1s
+ => => writing image sha256:e373963bdeae206169a91a3dfaf72fc70ea51225e78d27ede317ae227d8f14ce                       0.0s
+ => => naming to docker.io/library/p1-mehrab_app                                                                   0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+
+
+
+PS C:\Users\kevin\PRPT\p1-mehrab> docker-compose up
+[+] Running 3/3
+ - Network p1-mehrab_default    Created                                                                            0.6s
+ - Container p1-mehrab-p1-db-1  Created                                                                            0.1s
+ - Container p1-mehrab-app-1    Created                                                                            0.7s
+Attaching to p1-mehrab-app-1, p1-mehrab-p1-db-1
+Error response from daemon: driver failed programming external connectivity on endpoint p1-mehrab-p1-db-1 (753b5aed676568cf7bca8e35f42796ba8e53e3a27f9c5822404d2f24a70e37cc): Bind for 0.0.0.0:5432 failed: port is already allocated
+PS C:\Users\kevin\PRPT\p1-mehrab>

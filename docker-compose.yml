@@ -5,6 +5,7 @@ services:
     environment:
       POSTGRES_PASSWORD: "postgres"
     volumes:
+      - 86513b1ee5a8a626f14213e01fb3faf43185212ab7c9c6589e9372e9f0b4f018
       - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     ports:
       - 5432:5432
